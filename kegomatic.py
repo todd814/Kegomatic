@@ -6,7 +6,7 @@ import logging
 import pygame, sys
 from pygame.locals import *
 import RPi.GPIO as GPIO
-from twitter import *
+#from twitter import *
 from flowmeter import *
 from adabot import *
 from seekrits import *
@@ -153,11 +153,11 @@ def doAClick2(channel):
   if fm2.enabled == True:
     fm2.update(currentTime)
 
-def tweetPour(theTweet):
-  try:
-    t.statuses.update(status=theTweet)
-  except:
-    logging.warning('Error tweeting: ' + theTweet + "\n")
+#def tweetPour(theTweet):
+#  try:
+#    t.statuses.update(status=theTweet)
+#  except:
+#    logging.warning('Error tweeting: ' + theTweet + "\n")
 
 GPIO.add_event_detect(23, GPIO.RISING, callback=doAClick, bouncetime=20) # Beer, on Pin 23
 GPIO.add_event_detect(24, GPIO.RISING, callback=doAClick2, bouncetime=20) # Root Beer, on Pin 24
@@ -186,17 +186,17 @@ while True:
   else:
     view_mode = 'normal'
 
-  if (fm.thisPour > 0.23 and currentTime - fm.lastClick > 10000): # 10 seconds of inactivity causes a tweet
-    tweet = "Someone just poured " + fm.getFormattedThisPour() + " of " + fm.getBeverage() + " from the Adafruit kegomatic!" 
-    lastTweet = int(time.time() * FlowMeter.MS_IN_A_SECOND)
-    fm.thisPour = 0.0
-    tweetPour(tweet)
+ # if (fm.thisPour > 0.23 and currentTime - fm.lastClick > 10000): # 10 seconds of inactivity causes a tweet
+ #   tweet = "Someone just poured " + fm.getFormattedThisPour() + " of " + fm.getBeverage() + " from the Adafruit kegomatic!" 
+ #   lastTweet = int(time.time() * FlowMeter.MS_IN_A_SECOND)
+ #   fm.thisPour = 0.0
+ #   tweetPour(tweet)
  
-  if (fm2.thisPour > 0.23 and currentTime - fm2.lastClick > 10000): # 10 seconds of inactivity causes a tweet
-    tweet = "Someone just poured " + fm2.getFormattedThisPour() + " of " + fm2.getBeverage() + " from the Adafruit kegomatic!"
-    lastTweet = int(time.time() * FlowMeter.MS_IN_A_SECOND)
-    fm2.thisPour = 0.0
-    tweetPour(tweet)
+ # if (fm2.thisPour > 0.23 and currentTime - fm2.lastClick > 10000): # 10 seconds of inactivity causes a tweet
+ #   tweet = "Someone just poured " + fm2.getFormattedThisPour() + " of " + fm2.getBeverage() + " from the Adafruit kegomatic!"
+ #   lastTweet = int(time.time() * FlowMeter.MS_IN_A_SECOND)
+ #   fm2.thisPour = 0.0
+ #   tweetPour(tweet)
     
   # reset flow meter after each pour (2 secs of inactivity)
   if (fm.thisPour <= 0.23 and currentTime - fm.lastClick > 2000):
