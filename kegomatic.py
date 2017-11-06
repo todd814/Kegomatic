@@ -11,7 +11,7 @@ from flowmeter import *
 from adabot import *
 from seekrits import *
 
-t = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
+#t = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
 #boardRevision = GPIO.RPI_REVISION
 GPIO.setmode(GPIO.BCM) # use real GPIO numbering
 GPIO.setup(23,GPIO.IN, pull_up_down=GPIO.PUD_UP)
