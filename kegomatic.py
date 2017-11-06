@@ -9,7 +9,7 @@ import RPi.GPIO as GPIO
 #from twitter import *
 from flowmeter import *
 from adabot import *
-from seekrits import *
+#from seekrits import *
 
 #t = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
 #boardRevision = GPIO.RPI_REVISION
