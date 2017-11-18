@@ -33,7 +33,7 @@ pygame.mouse.set_visible(False)
 # set up the flow meters
 fm = FlowMeter('metric', ["beer"])
 fm2 = FlowMeter('metric', ["root beer"])
-#tweet = ''
+tweet = ''
 # set up the colors
 BLACK = (0,0,0)
 WHITE = (255,255,255)
