@@ -24,7 +24,7 @@ pygame.init()
 VIEW_WIDTH = 1024
 VIEW_HEIGHT = 576
 pygame.display.set_caption('KEGBOT')
-#lastTweet = 0
+lastTweet = 0
 view_mode = 'normal'
 
 # hide the mouse
@@ -181,7 +181,7 @@ while True:
   
   currentTime = int(time.time() * FlowMeter.MS_IN_A_SECOND)
  
-if currentTime - lastTweet < 5000: # Pause for 5 seconds after tweeting to show the tweet
+  if currentTime - lastTweet < 5000: # Pause for 5 seconds after tweeting to show the tweet
     view_mode = 'tweet'
   else:
     view_mode = 'normal'
